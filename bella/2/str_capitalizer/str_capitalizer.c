@@ -1,3 +1,5 @@
+// Passed Moulinette 2019.09.01
+
 #include <unistd.h>
 
 void	str_capitalizer(char *str)
@@ -10,13 +12,17 @@ void	str_capitalizer(char *str)
 			++str;
 		}
 
+		if (*str != '\0')
+		{
+			if (*str >= 'a' && *str <= 'z')
+				*str = *str - ('a' - 'A');
+			write(1, str, 1);
+			++str;
+		}
+
 		while (*str != '\0' && *str != ' ' && *str != '\t')
 		{
-			if (*str >= 'a' && *str <= 'z'
-			&& (*(str + 1) == '\0' || *(str + 1) == ' ' || *(str + 1) == '\t'))
-				*str = *str - ('a' - 'A');
-			else if (*str >= 'A' && *str <= 'Z' && *(str + 1) != '\0'
-			&& *(str + 1) != ' ' && *(str + 1) != '\t')
+			if (*str >= 'A' && *str <= 'Z')
 				*str = *str + ('a' - 'A');
 			write(1, str, 1);
 			++str;
