@@ -1,4 +1,3 @@
-// Passed Moulinette 2019.09.02
 
 #include <unistd.h>
 
